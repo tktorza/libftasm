@@ -6,7 +6,7 @@
 ;    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/13 23:39:14 by ddevico           #+#    #+#              ;
-;    Updated: 2017/11/05 21:42:23 by davydevico       ###   ########.fr        ;
+;    Updated: 2017/11/06 13:19:44 by davydevico       ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -18,7 +18,6 @@ _ft_isdigit:
 	jl no
 	cmp rdi, 57
 	jg no
-
 
 yes:
 	mov rax, 1

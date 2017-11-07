@@ -6,7 +6,7 @@
 #    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/30 14:18:45 by ddevico           #+#    #+#              #
-#    Updated: 2017/11/07 17:01:53 by ddevico          ###   ########.fr        #
+#    Updated: 2017/11/07 21:29:46 by davydevico       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRC =	ft_toupper.s \
 		ft_isalnum.s \
 		ft_puts.s	 \
 		ft_strlen.s	 \
+		ft_memset.s \
 
 OBJ = $(addprefix $(PATH_SRC), $(SRC:.s=.o))
 
@@ -48,6 +49,7 @@ clean:
 
 fclean: clean
 	/bin/rm -f $(NAME)
+	rm -rf $(NAME_TEST)
 
 re: fclean all
 

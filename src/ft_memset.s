@@ -1,28 +1,32 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_tolower.s                                       :+:      :+:    :+:    ;
+;    ft_memset.s                                        :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2017/11/05 19:39:39 by ddevico           #+#    #+#              ;
-;    Updated: 2017/11/07 21:24:02 by davydevico       ###   ########.fr        ;
+;    Created: 2015/04/13 23:39:14 by ddevico           #+#    #+#              ;
+;    Updated: 2017/11/07 21:51:52 by davydevico       ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-global _ft_tolower
-
 section .text
-_ft_tolower:
-	mov rax, rdi
-	cmp rdi, 65
-	jl return
-	cmp rdi, 90
-	jg return
+global _ft_memset
 
-lower:
-	add rax, 32
-	jg return
+_ft_memset:
+	push rbx
+	mov rbx, rdi	;save void *s addr
+	cmp	rdx, 0		;cmp size to 0
+	jle	return		;if lower or egual return
+	cmp rdi, byte 0 ;check if ptr is NULL
+	je return
+	mov	rax, rsi	;cp int in rax for stosb can use it
+	mov rcx, rdx ;copy size in cmpt for stosb
+	cld
+	rep stosb ;while rcx(size(rdx)) > 0 copy byte (rax(int c(rsi))) in rdi
+	jmp return
 
 return:
+	mov rax, rbx
+	pop rbx
 	ret

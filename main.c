@@ -6,7 +6,7 @@
 /*   By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 15:13:31 by ddevico           #+#    #+#             */
-/*   Updated: 2017/11/07 17:53:06 by ddevico          ###   ########.fr       */
+/*   Updated: 2017/11/07 21:33:57 by davydevico       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,25 @@ static void test_ft_strlen(void)
 	printf("str = %s ==> len = %d\n", str2, ft_strlen(str2));
 }
 
+
+static void test_ft_memset(void)
+{
+	char	mems[4];
+
+	print_prog("ft_memset");
+	ft_bzero(mems, 4);
+	printf("str[0] = %d\n", mems[0]);
+	printf("str[1] = %d\n", mems[1]);
+	printf("str[2] = %d\n", mems[2]);
+	printf("str[3] = %d\n", mems[3]);
+	printf("--- memseting with 'a' ---\n");
+	ft_memset(mems, 'a', 4);
+	printf("str[0] = %c (%d)\n", mems[0], mems[0]);
+	printf("str[1] = %c (%d)\n", mems[1], mems[1]);
+	printf("str[2] = %c (%d)\n", mems[2], mems[2]);
+	printf("str[3] = %c (%d)\n", mems[3], mems[3]);
+}
+
 int		main(void)
 {
 	test_ft_toupper();
@@ -158,4 +177,5 @@ int		main(void)
 	test_ft_isalnum();
 	test_ft_puts();
 	test_ft_strlen();
+	test_ft_memset();
 }

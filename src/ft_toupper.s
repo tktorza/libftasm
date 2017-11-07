@@ -6,7 +6,7 @@
 ;    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/11/05 19:39:39 by ddevico           #+#    #+#              ;
-;    Updated: 2017/11/06 10:16:24 by davydevico       ###   ########.fr        ;
+;    Updated: 2017/11/07 18:08:07 by ddevico          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -21,7 +21,7 @@ _ft_toupper:
 	jg return
 
 upper:
-	sub rax, 0x20
+	sub rax, 16
 	jmp return
 
 return:

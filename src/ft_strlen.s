@@ -1,31 +1,30 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_bzero.s                                         :+:      :+:    :+:    ;
+;    ft_strlen.s                                        :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/04/13 19:38:52 by ddevico           #+#    #+#              ;
-;    Updated: 2017/11/07 16:11:42 by ddevico          ###   ########.fr        ;
+;    Created: 2017/11/05 19:39:39 by ddevico           #+#    #+#              ;
+;    Updated: 2017/11/07 17:08:02 by ddevico          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-global _ft_bzero
+global	_ft_strlen
 
-section .text
-_ft_bzero:
-	cmp rdi, 0
-	jz end
-	mov rbx, rdi
-	mov rax, rsi
+section	.text
 
-bzero:
-	cmp rax, 0
-	jle end
-	mov byte[rbx], 0
-	inc rbx
-	dec rax
-	jmp bzero
+_ft_strlen:
+	mov	rax, 0
+	cmp	rdi, 0
+	je	return
 
-end:
+len:
+	cmp	byte[rdi], 0
+	je	return
+	inc	rdi
+	inc	rax
+	jmp	len
+
+return:
 	ret

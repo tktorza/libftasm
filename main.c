@@ -6,7 +6,7 @@
 /*   By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 15:13:31 by ddevico           #+#    #+#             */
-/*   Updated: 2017/11/06 11:42:03 by davydevico       ###   ########.fr       */
+/*   Updated: 2017/11/07 17:53:06 by ddevico          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,16 @@ static void test_ft_puts (void)
 	ft_puts("foo bar baz");
 }
 
+static void test_ft_strlen(void)
+{
+	char str[6] = "abcde";
+	char str2[2] = "a";
+
+	print_prog("ft_puts");
+	printf("str = %s ==> len = %d\n", str, ft_strlen(str));
+	printf("str = %s ==> len = %d\n", str2, ft_strlen(str2));
+}
+
 int		main(void)
 {
 	test_ft_toupper();
@@ -147,4 +157,5 @@ int		main(void)
 	test_ft_strcat();
 	test_ft_isalnum();
 	test_ft_puts();
+	test_ft_strlen();
 }

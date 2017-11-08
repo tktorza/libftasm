@@ -6,7 +6,7 @@
 /*   By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/05 14:01:29 by ddevico           #+#    #+#             */
-/*   Updated: 2017/11/07 21:34:01 by davydevico       ###   ########.fr       */
+/*   Updated: 2017/11/08 09:53:21 by ddevico          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ int  		ft_puts(const char *s);
 
 int			ft_strlen(char *str);
 void		*ft_memset(void *b, int c, size_t len);
+void		*ft_memcpy(void *s1, const void *s2, size_t n);
+char		*ft_strdup(char *src);
 
 #endif

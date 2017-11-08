@@ -1,29 +1,42 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_memset.s                                        :+:      :+:    :+:    ;
+;    ft_strdup.s                                        :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/13 23:39:14 by ddevico           #+#    #+#              ;
-;    Updated: 2017/11/08 09:21:16 by ddevico          ###   ########.fr        ;
+;    Updated: 2017/11/08 10:23:41 by ddevico          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-section .text
-global _ft_memset
+extern _ft_strlen
+extern _malloc
+extern _ft_memcpy
 
-_ft_memset:
-	mov rbx, rdi	;save void *s addr
-	mov rcx, rdx	;copy size in cmpt for stosb
-	cmp	rcx, 0		;cmp size to 0
-	jle	return
-	cmp rdi, 0		;check if ptr is NULL
+global _ft_strdup
+section .text
+
+_ft_strdup:
+	cmp	rdi, 0
+	je	error
+	mov rbx, rdi
+	call _ft_strlen
+	inc rax
+	mov rdx, rax
+	mov rdi, rax
+	push rax
+	call _malloc
+	cmp rax, 0
 	je return
-	mov	rax, rsi	;cp int in rax for stosb can use it
-	cld
-	rep stosb		;while rcx(size(rdx)) > 0 copy byte (rax(int c(rsi))) in rdi
+	mov rdi, rax
+	mov rsi, rbx
+	pop rdx
+	call _ft_memcpy
 
 return:
-	mov rax, rbx
+	ret
+
+error:
+	mov rax, 0
 	ret

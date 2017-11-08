@@ -6,7 +6,7 @@
 #    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/30 14:18:45 by ddevico           #+#    #+#              #
-#    Updated: 2017/11/07 21:29:46 by davydevico       ###   ########.fr        #
+#    Updated: 2017/11/08 10:26:46 by ddevico          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ PATH_SRC = ./src/
 AS = nasm
 ASFLAGS = -f macho64
 CC = cc -Wall -Wextra -Werror
-# CFLAGS = -Ofast -I $(PATH_INC) -g
 
 LIBS = -L ./ -lfts
 
@@ -33,6 +32,8 @@ SRC =	ft_toupper.s \
 		ft_puts.s	 \
 		ft_strlen.s	 \
 		ft_memset.s \
+		ft_memcpy.s \
+		ft_strdup.s \
 
 OBJ = $(addprefix $(PATH_SRC), $(SRC:.s=.o))
 
@@ -45,10 +46,10 @@ $(NAME): $(OBJ)
 	ranlib $(NAME)
 
 clean:
-	/bin/rm -f $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	rm -rf $(NAME)
 	rm -rf $(NAME_TEST)
 
 re: fclean all

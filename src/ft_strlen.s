@@ -6,25 +6,27 @@
 ;    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/11/05 19:39:39 by ddevico           #+#    #+#              ;
-;    Updated: 2017/11/07 17:08:02 by ddevico          ###   ########.fr        ;
+;    Updated: 2017/11/08 14:35:03 by davydevico       ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
-global	_ft_strlen
+global _ft_strlen
 
-section	.text
-
+section .text
 _ft_strlen:
-	mov	rax, 0
-	cmp	rdi, 0
-	je	return
+	cmp	rdi, 0		;check if str is NULL
+	je return
+	mov al, 0		;if (rdi[x] == al)
+	mov rcx, 0
+	not rcx			;0101 0011 -> 1010 1100
+	cld
+	repne scasb		;if (rdi[x] != a) goto while
 
-len:
-	cmp	byte[rdi], 0
-	je	return
-	inc	rdi
-	inc	rax
-	jmp	len
+endwhile:
+	not rcx
+	dec rcx
+	mov rax, rcx
+	ret
 
 return:
 	ret

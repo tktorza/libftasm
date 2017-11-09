@@ -6,7 +6,7 @@
 #    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/30 14:18:45 by ddevico           #+#    #+#              #
-#    Updated: 2017/11/08 15:52:18 by ddevico          ###   ########.fr        #
+#    Updated: 2017/11/09 11:55:30 by ddevico          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,6 @@ SRC =	ft_toupper.s \
 
 OBJ = $(addprefix $(PATH_SRC), $(SRC:.s=.o))
 
-.PHONY: clean fclean re test
-
 all: $(NAME)
 
 $(NAME): $(OBJ)
@@ -47,13 +45,15 @@ $(NAME): $(OBJ)
 	ranlib $(NAME)
 
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
-	rm -rf $(NAME_TEST)
+	rm -f $(NAME)
+	rm -f $(NAME_TEST)
 
 re: fclean all
 
 test: $(OBJ) main.c
 	$(CC) main.c $(LIBS) -o $(NAME_TEST)
+
+.PHONY: all clean fclean re test

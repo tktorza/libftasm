@@ -6,7 +6,7 @@
 ;    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/11/05 19:39:39 by ddevico           #+#    #+#              ;
-;    Updated: 2017/11/09 11:04:54 by ddevico          ###   ########.fr        ;
+;    Updated: 2017/11/09 11:44:26 by ddevico          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -25,5 +25,4 @@ upper:
 	jmp return
 
 return:
-	leave
 	ret

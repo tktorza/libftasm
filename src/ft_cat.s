@@ -6,7 +6,7 @@
 ;    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/13 23:39:14 by ddevico           #+#    #+#              ;
-;    Updated: 2017/11/09 10:56:10 by ddevico          ###   ########.fr        ;
+;    Updated: 2017/11/09 11:42:32 by ddevico          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -19,7 +19,7 @@ global _ft_cat
 extern _ft_strlen
 
 section .data
-	buffer times 255 db 0
+	buffer db 0
 	bufsize equ $ - buffer
 
 section .text

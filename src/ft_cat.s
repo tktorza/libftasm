@@ -1,29 +1,51 @@
 ; **************************************************************************** ;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_memset.s                                        :+:      :+:    :+:    ;
+;    ft_cat.s                                           :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/13 23:39:14 by ddevico           #+#    #+#              ;
-;    Updated: 2017/11/08 15:49:13 by ddevico          ###   ########.fr        ;
+;    Updated: 2017/11/09 10:56:10 by ddevico          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
+%define	SYSC(nb)			0x2000000 | nb
+%define	READ				3
+%define WRITE				4
+
+global _ft_cat
+
+extern _ft_strlen
+
+section .data
+	buffer times 255 db 0
+	bufsize equ $ - buffer
+
 section .text
-global _ft_memset
 
-_ft_memset:
-	mov rbx, rdi	;save void *s addr
-	mov rcx, rdx	;copy size in cmpt for stosb
-	cmp	rcx, 0		;cmp size to 0
-	jle	return
-	cmp rdi, 0		;check if ptr is NULL
-	je return
-	mov	rax, rsi	;cp int in rax for stosb can use it
-	cld
-	rep stosb		;while rcx(size(rdx)) > 0 copy byte (rax(int c(rsi))) in rdi
+_ft_cat:
+	push rdi
+	lea rsi, [rel buffer]
+	mov rdx, bufsize
+	mov rax, SYSC(READ) ; put rax to `read` sys call
+	syscall
+	jc err
+	cmp rax, 0
+	je end
 
-return:
-	mov rax, rbx
+print:
+	mov rdi, 1
+	mov rdx, rax ; size to write
+	mov rax, SYSC(WRITE) ; put rax to `write` sys call
+	syscall ; WRITE
+	jc err
+	pop rdi ; recuperate fd
+	jmp _ft_cat ; loop
+
+err:
+	pop rdi
+	mov rax, 1
+
+end:
 	ret

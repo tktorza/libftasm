@@ -6,13 +6,13 @@
 ;    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/04/13 19:38:52 by ddevico           #+#    #+#              ;
-;    Updated: 2017/11/07 16:11:42 by ddevico          ###   ########.fr        ;
+;    Updated: 2017/11/09 10:42:01 by ddevico          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
+section .text
 global _ft_bzero
 
-section .text
 _ft_bzero:
 	cmp rdi, 0
 	jz end

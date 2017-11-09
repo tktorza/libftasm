@@ -6,7 +6,7 @@
 ;    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2017/11/05 19:39:39 by ddevico           #+#    #+#              ;
-;    Updated: 2017/11/08 10:58:28 by ddevico          ###   ########.fr        ;
+;    Updated: 2017/11/09 11:04:54 by ddevico          ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
@@ -15,9 +15,9 @@ global _ft_toupper
 section .text
 _ft_toupper:
 	mov rax, rdi
-	cmp	rdi, 97
+	cmp	rax, 97
 	jl return
-	cmp	rdi, 122
+	cmp	rax, 122
 	jg return
 
 upper:
@@ -25,4 +25,5 @@ upper:
 	jmp return
 
 return:
+	leave
 	ret

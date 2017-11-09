@@ -6,7 +6,7 @@
 /*   By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 15:13:31 by ddevico           #+#    #+#             */
-/*   Updated: 2017/11/08 11:08:15 by ddevico          ###   ########.fr       */
+/*   Updated: 2017/11/09 11:07:00 by ddevico          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ static void test_ft_isprint (void)
 
 static void test_ft_bzero (void)
 {
-	print_prog("ft_bzero");
 	char str[4] = "jui";
 
+	print_prog("ft_bzero");
 	printf("str[0] = %d\n", str[0]);
 	printf("str[1] = %d\n", str[1]);
 	printf("str[2] = %d\n", str[2]);
@@ -200,7 +200,7 @@ static void test_ft_memcpy(void)
 	printf("b = %d\n", b);
 }
 
-void test_ft_strdup (void)
+/*void test_ft_strdup (void)
 {
 	char * tata = strdup("yolo");
 	char * toto = ft_strdup(tata);
@@ -213,7 +213,7 @@ void test_ft_strdup (void)
 	printf("titi = %s\n", titi);
 	titi = ft_strdup(NULL);
 	printf("titi = %s\n", titi);
-}
+}*/
 
 int		main(void)
 {
@@ -230,5 +230,5 @@ int		main(void)
 	test_ft_strlen();
 	test_ft_memset();
 	test_ft_memcpy();
-	test_ft_strdup();
+	//test_ft_strdup();
 }

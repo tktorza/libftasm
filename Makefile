@@ -6,7 +6,7 @@
 #    By: ddevico <ddevico@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/30 14:18:45 by ddevico           #+#    #+#              #
-#    Updated: 2017/11/08 10:26:46 by ddevico          ###   ########.fr        #
+#    Updated: 2017/11/08 15:52:18 by ddevico          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC =	ft_toupper.s \
 		ft_memset.s \
 		ft_memcpy.s \
 		ft_strdup.s \
+		ft_cat.s \
 
 OBJ = $(addprefix $(PATH_SRC), $(SRC:.s=.o))
 

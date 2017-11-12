@@ -20,7 +20,7 @@ _ft_strlen:
 	mov rcx, 0
 	not rcx			;0101 0011 -> 1010 1100
 	cld
-	repne scasb		;if (rdi[x] != a) goto while
+	repne scasb		;if (rdi[x] != al) goto while
 
 endwhile:
 	not rcx
